@@ -1,37 +1,42 @@
 <script setup lang="ts">
+
 defineProps<{
-  props:{};
+  props: any;
 }>()
+
 </script>
 
 <template>
- <!--  <div>    
-    {{props}}
-    <div v-for="prop in props">
-      {{prop}}
-      <div v-for="propi in prop">
-        {{propi}}
-      </div>
-    </div>
-  </div> -->
 
-  <div class="card" style="width: 18rem;">
-    <div  class="card-body" v-for="prop in props">
-      {{props}}
-      <div v-for="propi in prop">
-        <h5 class="card-title">
-          {{prop}}{{propi}} 
-        </h5>
-        
+  {{props.info.next}}
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3" v-for="prop in props.results">
+        <div class="card">
+          <img :src=prop.image class="card-img-top" :alt=prop.name>
+          <div class="card-body">
+            <h2 class="card-title">{{ prop.name }}</h2>
+            <h3 class="card-subtitle mb-2 text-muted">{{ prop.species }}</h3>
+            <h4 class="card-subtitle mb-2 text-muted">{{ prop.status }}</h4>
+            <h5 class="card-subtitle mb-2 text-muted">{{ prop.gender }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ prop.location.name }}</h6>
+          </div>
+        </div>
       </div>
-      
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+
     </div>
   </div>
+
+
 </template>
 
 <style scoped>
+.card {
+  margin: 1em
+}
 
+.row {
+  display: flex;
+  justify-content: center;
+}
 </style>

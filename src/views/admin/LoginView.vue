@@ -1,16 +1,18 @@
 <script setup lang="ts">
 import Component from '@/components/Component.vue';
+import Navbar from '@/components/Navbar.vue';
 
-
-
-var data = {object:{name:'perry', age:'73'},object2:{name:'Joe', age:'73'}};
+const res = await fetch(`https://rickandmortyapi.com/api/character`)
+const posts = await res.json()
 
 </script>
 
 <template>
   <main>
-    
-    <Component :props="data"/>
-    
+
+    <Navbar></Navbar>
+
+    <Component :props="posts" />
+
   </main>
 </template>
